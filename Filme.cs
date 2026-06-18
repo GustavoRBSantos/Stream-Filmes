@@ -11,6 +11,15 @@
         Console.WriteLine($"Nome: {titulo}");
         Console.WriteLine($"Genero: {genero}");
         Console.WriteLine($"Ano de lançamento: {anoLancamento}");
-        Console.WriteLine($"Classificação: {classificacaoIndicativa}");
+        Console.WriteLine($"Classificação: {ObterClassificacao()}");
+    }
+
+    public string ObterClassificacao()
+    {
+        if (classificacaoIndicativa <=0)
+        {
+            return "Livre";
+        }
+        return classificacaoIndicativa + "anos";
     }
 }
