@@ -25,7 +25,7 @@ do
             Console.WriteLine("\n filme cadastrado com sucesso!");
             break;
 
-        case 2;
+        case 2:
             if (string.IsNullOrEmpty(filme.titulo))
             {
                 Console.WriteLine("Nenhum filme cadastrado.");
