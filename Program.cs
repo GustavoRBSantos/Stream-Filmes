@@ -9,7 +9,7 @@ do
     Console.WriteLine("0 - Sair");
     Console.Write("Escolha uma opção: ");
     opcao = Convert.ToInt32(Console.ReadLine());
-
+    int ano;
     switch (opcao)
     {
         case 1:
@@ -18,8 +18,18 @@ do
             novoFilme.titulo = Console.ReadLine();
             Console.Write("Genero: ");
             novoFilme.genero = Console.ReadLine();
-            Console.Write("Ano lançamento: ");
-            novoFilme.anoLancamento = Convert.ToInt32(Console.ReadLine());
+            do
+            {
+                Console.Write("Ano lançamento(1888 até 2026): ");
+                ano = Convert.ToInt32(Console.ReadLine());
+
+                if (ano < 1888 || ano > 2026)
+                {
+                    Console.WriteLine("Ano inválido! Digite um ano real entre 1888 e 2026.");
+                }
+            } while (ano < 1888 || ano > 2026);
+            novoFilme.anoLancamento = ano;
+
             Console.Write("Classificação Indicativa:");
             novoFilme.classificacaoIndicativa = Convert.ToInt32(Console.ReadLine());
             listaFilmes.Add(novoFilme);
