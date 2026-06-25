@@ -1,5 +1,4 @@
-﻿Filme filme = new Filme();
-
+﻿List<Filme> listaFilmes = new List<Filme>();
 int opcao;
 
 do
@@ -14,25 +13,30 @@ do
     switch (opcao)
     {
         case 1:
+            Filme novoFilme = new Filme();
             Console.Write("Título: ");
-            filme.titulo = Console.ReadLine();
+            novoFilme.titulo = Console.ReadLine();
             Console.Write("Genero: ");
-            filme.genero = Console.ReadLine();
+            novoFilme.genero = Console.ReadLine();
             Console.Write("Ano lançamento: ");
-            filme.anoLancamento = Convert.ToInt32(Console.ReadLine());
+            novoFilme.anoLancamento = Convert.ToInt32(Console.ReadLine());
             Console.Write("Classificação Indicativa:");
-            filme.classificacaoIndicativa = Convert.ToInt32(Console.ReadLine());
+            novoFilme.classificacaoIndicativa = Convert.ToInt32(Console.ReadLine());
+            listaFilmes.Add(novoFilme);
             Console.WriteLine("\n filme cadastrado com sucesso!");
             break;
 
         case 2:
-            if (string.IsNullOrEmpty(filme.titulo))
+            if (listaFilmes.Count == 0)
             {
                 Console.WriteLine("Nenhum filme cadastrado.");
             }
             else
             {
-                filme.ExibirInformarcoes();
+                foreach (var filme in listaFilmes)
+                {
+                    filme.ExibirInformarcoes();
+                }
             }
             break;
 
@@ -43,15 +47,6 @@ do
         default:
             Console.WriteLine("\nOpção inválida");
             break;
-
-
-
     }
 
 } while (opcao != 0);
-
-
-
-
-filme.ExibirInformarcoes();
-
