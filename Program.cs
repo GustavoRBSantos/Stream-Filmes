@@ -1,6 +1,6 @@
 ﻿List<Filme> listaFilmes = new List<Filme>();
 int opcao;
-
+Console.Clear();
 do
 {
     Console.WriteLine("\n====CATÁLOGO DE FILMES====");
@@ -35,6 +35,8 @@ do
             novoFilme.classificacaoIndicativa = Convert.ToInt32(Console.ReadLine());
             listaFilmes.Add(novoFilme);
             Console.WriteLine("\n filme cadastrado com sucesso!");
+            Console.WriteLine("Precione qualquer tecla para continuar...");
+            Console.ReadKey();
             break;
 
         case 2:
@@ -49,6 +51,8 @@ do
                     filme.ExibirInformarcoes();
                 }
             }
+            Console.WriteLine("Precione qualquer tecla para continuar...");
+            Console.ReadKey();
             break;
 
         case 3:
@@ -68,6 +72,8 @@ do
             {
                 Console.WriteLine("\n Nenhum filme encontrado com esse termo.");
             }
+            Console.WriteLine("Precione qualquer tecla para continuar...");
+            Console.ReadKey();
             break;
 
         case 0:
@@ -76,6 +82,8 @@ do
 
         default:
             Console.WriteLine("\nOpção inválida");
+            Console.WriteLine("Precione qualquer tecla para continuar...");
+            Console.ReadKey();
             break;
     }
 
