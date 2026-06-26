@@ -6,6 +6,7 @@ do
     Console.WriteLine("\n====CATÁLOGO DE FILMES====");
     Console.WriteLine("1 - Cadastrar Filme");
     Console.WriteLine("2 - Exibir Filme");
+    Console.WriteLine("3 - Procurar Filme");
     Console.WriteLine("0 - Sair");
     Console.Write("Escolha uma opção: ");
     opcao = Convert.ToInt32(Console.ReadLine());
@@ -47,6 +48,25 @@ do
                 {
                     filme.ExibirInformarcoes();
                 }
+            }
+            break;
+
+        case 3:
+            Console.Write("Digite o título para buscar: ");
+            string termoBusca = Console.ReadLine();
+            bool encontrado = false;
+
+            foreach(var filme in listaFilmes)
+            {
+                if (filme.titulo.ToLower().Contains(termoBusca.ToLower()))
+                {
+                    filme.ExibirInformarcoes();
+                    encontrado = true;
+                }
+            }
+            if (!encontrado)
+            {
+                Console.WriteLine("\n Nenhum filme encontrado com esse termo.");
             }
             break;
 
